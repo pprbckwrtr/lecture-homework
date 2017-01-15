@@ -7,5 +7,6 @@ ls Reading Comprehension
 Exploring More ls Arguments
    -h prints human readable sizes of directory
    -l use a long listing format
-
+Listing Recursively and By Time
+   ls -R -t lists directories alphabetically, but the contents of the directories in time order
 
