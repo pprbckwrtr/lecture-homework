@@ -1,5 +1,7 @@
-1. Absolute vs. Relative Paths
-- home directory: cd, cd ~ , cd~/data/.. , cd..
-2. Relative Path Resolution 
-- original pnas_final pnas_sub
+Absolute vs. Relative Paths
+   #5 cd ~ #7 cd~/data/.. #8 cd #9 cd..
+Relative Path Resolution 
+   #4 original pnas_final pnas_sub
+ls Reading Comprehension
+   ls -r -F, ls -r -F /Users/backup, either #2 or #3 but not #1
 
