@@ -1,3 +1,5 @@
 1. Absolute vs. Relative Paths
 - home directory: cd, cd ~ , cd~/data/.. , cd..
+2. Relative Path Resolution 
+- original pnas_final pnas_sub
 
