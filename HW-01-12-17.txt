@@ -4,4 +4,8 @@ Relative Path Resolution
    #4 original pnas_final pnas_sub
 ls Reading Comprehension
    ls -r -F, ls -r -F /Users/backup, either #2 or #3 but not #1
+Exploring More ls Arguments
+   -h prints human readable sizes of directory
+   -l use a long listing format
+
 
