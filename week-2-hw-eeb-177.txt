@@ -1,0 +1,199 @@
+Question 1:
+
+Eligmodontia typus
+Microtus oregoni
+Peromyscus gossypinus
+Elephantulus myurus
+Peromyscus boylii
+
+Question 2:
+
+There are 152 unique families:
+
+
+Abrocomidae
+Acrobatidae
+Ailuridae
+Anomaluridae
+Antilocapridae
+Aotidae
+Aplodontiidae
+Atelidae
+Balaenidae
+Balaenopteridae
+Bathyergidae
+Bovidae
+Bradypodidae
+Burramyidae
+Caenolestidae
+Callitrichidae
+Calomyscidae
+Camelidae
+Canidae
+Capromyidae
+Castoridae
+Caviidae
+Cebidae
+Cercopithecidae
+Cervidae
+Cheirogaleidae
+Chinchillidae
+Chrysochloridae
+Craseonycteridae
+Cricetidae
+Ctenodactylidae
+Ctenomyidae
+Cuniculidae
+Cyclopedidae
+Cynocephalidae
+Dasypodidae
+Dasyproctidae
+Dasyuridae
+Daubentoniidae
+Delphinidae
+Diatomyidae
+Didelphidae
+Dinomyidae
+Dipodidae
+Dugongidae
+Echimydae
+Echimyidae
+Elephantidae
+Emballonuridae
+Equidae
+Erethizontidae
+Erinaceidae
+Eschrichtiidae
+Eupleridae
+Felidae
+Furipteridae
+Galagidae
+Geomyidae
+Giraffidae
+Gliridae
+Herpestidae
+Heteromyidae
+Hippopotamidae
+Hipposideridae
+Hominidae
+Hyaenidae
+Hylobatidae
+Hypsiprymnodontidae
+Hystricidae
+Indriidae
+Iniidae
+Lemuridae
+Lepilemuridae
+Leporidae
+Lorisidae
+Macropodidae
+Macroscelididae
+Manidae
+Megadermatidae
+Megalonychidae
+Mephitidae
+Microbiotheriidae
+Molossidae
+Monodontidae
+Mormoopidae
+Moschidae
+Muridae
+Mustelidae
+Myocastoridae
+Myrmecobiidae
+Myrmecophagidae
+Mystacinidae
+Myzopodidae
+Nandiniidae
+Natalidae
+Neobalaenidae
+Nesomyidae
+Noctilionidae
+Notoryctidae
+Nycteridae
+Ochotonidae
+Octodontidae
+Odobenidae
+Ornithorhynchidae
+Orycteropodidae
+Otariidae
+Pedetidae
+Peramelidae
+Petauridae
+Petromuridae
+Phalangeridae
+Phascolarctidae
+Phocidae
+Phocoenidae
+Phyllostomidae
+Physeteridae
+Pitheciidae
+Platacanthomyidae
+Platanistidae
+Potoroidae
+Prionodontidae
+Procaviidae
+Procyonidae
+Pseudocheiridae
+Pteropodidae
+Ptilocercidae
+Rhinocerotidae
+Rhinolophidae
+Rhinopomatidae
+Sciuridae
+Solenodontidae
+Soricidae
+Spalacidae
+Suidae
+Tachyglossidae
+Talpidae
+Tapiridae
+Tarsiidae
+Tarsipedidae
+Tayassuidae
+Tenrecidae
+Thryonomyidae
+Thylacomyidae
+Thyropteridae
+Tragulidae
+Trichechidae
+Tupaiidae
+Ursidae
+Vespertilionidae
+Viverridae
+Vombatidae
+Ziphiidae
+
+Question 3:
+
+Allesina 1.7.3
+
+  732  cut -d ';' -f 3 Pacifici2013_data.csv | tail -n +2 | sort -n | uniq | wc -l
+  733  cut -d ';' -f 3 Pacifici2013_data.csv | tail -n +2 | sort -n | uniq >> /home/eeb177-student/Desktop/eeb-177/homework/week-2-hw-eeb-177.txt
+  734  cd sandbox
+  735  cd ..
+  736  cd sandbox
+  737  tail -n +2 ../data/Pacifici2013_data.csv
+  738  tail -n +2 ../data/Pacifici2013_data.csv | cut -d ";" -f 2-6 | tr -s ';' ' ' | sort -r -n -k 6 >BodyM.csv
+  739  git add
+  740  git add BodyM.csv
+  741  git commit -m "completed Allesina 1.7.3"
+  742  git push
+  743  history
+  744  history 734-740 >> week-2-hw-eeb-177.txt
+  745  history man
+  746  man history
+  747  history -n 734 >> /home/eeb177-student/Desktop/eeb-177/homework/week-2-hw-eeb-177.txt
+  748  history | tail -n 17 >> /home/eeb177-student/Desktop/eeb-177/homework/week-2-hw-eeb-177.txt
+
+Question 4:
+
+10th largest is Eubalaena glacialis
+10th smallest is Pipistrellus nanulus
+
+Question 5:
+
+Question 6:
+
+Size of Marra2014_data.fasta is 556 K
+
