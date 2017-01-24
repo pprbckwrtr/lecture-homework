@@ -193,7 +193,32 @@ Question 4:
 
 Question 5:
 
+  707  cd CSB
+  708  cd Sandbox
+  709  cd sandbox
+  710  cd unix
+  711  cd sandbox
+  712  BodyM.csv wc -l
+  713  wc -l BodyM.csv
+  714  grep Vombatidae BodyM.csv
+  715  grep -c Vombatidae BodyM.csv
+  716  grep Bos Bodmy.csv
+  717  grep Bos BodyM.csv
+  718  grep -w Bos BodyM.csv
+  719  grep -i Bos BodyM.csv
+  720  grep -A 2 -B 2 "Gorrilla gorilla" BodyM.csv
+  721  grep -B 2 -A 2 "Gorilla gorilla" BodyM.csv
+  722  grep -n "Gorilla gorilla" BodyM.csv
+  723  grep Gorilla BodyM,csv | grep -v gorilla
+  724  grep Gorilla BodyM.csv | grep -v gorilla
+  725  grep -w "Gorilla\|Pan" BodyM.csv
+  726  cd ..
+  727  gep -r "Gorilla" data/
+  728  grep -r "Gorilla" data/
+  729  history
+  730  history -n 24 >> /home/eeb177-student/Desktop/eeb-177/homework/week-2-hw-eeb-177.txt
+  731  history | tail -n 25 >> /home/eeb177-student/Desktop/eeb-177/homework/week-2-hw-eeb-177.txt
+
 Question 6:
 
 Size of Marra2014_data.fasta is 556 K
-
