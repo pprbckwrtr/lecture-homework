@@ -1,15 +1,14 @@
 Question 1:
 
-Eligmodontia typus
-Microtus oregoni
-Peromyscus gossypinus
-Elephantulus myurus
-Peromyscus boylii
+Rodentia
+Rodentia
+Rodentia
+Macroscelidea
+Rodentia
 
 Question 2:
 
 There are 152 unique families:
-
 
 Abrocomidae
 Acrobatidae
