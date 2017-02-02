@@ -1,0 +1,32 @@
+1. Allesina 1.11.2
+
+	1. #3 was record 61 times and #27 was recorded 5 times.
+
+	2.  cut -f 1 <filename> | grep -c -w <maleid>
+	
+	3. myIDS=`tail -n +2 ../data/Gesquiere2011_data.csv | cut -f 1 | sort -n | uniq`
+	   for id in $myIDS
+	   do
+	       mycounts=`bash count_baboons.sh ../data/Gesquiere2011_data.csv $id`
+	       echo "ID:" $id "counts:" $mycounts
+	   done	
+
+2. Allesina 1.11.3
+	
+	1. echo "Filename:"
+	echo $1
+	echo "Number of rows:"
+	cat $1 | wc -l
+	echo "Number of columns:"
+	head -n 1 $1 | tr -d ' ' | tr -d '\n' | wc -c
+
+	2.FILES=../data/Saavedra2013/*.txt
+	for f in $FILES 
+	do
+    	myrow=`cat $f | wc -l`
+    	mycol=`head -n 1 $f | tr -d ' ' | tr -d '\n' | wc -c`
+    	echo $f $myrow $mycol
+	done
+
+	3. File w/ largest number of rows:  ../data/Saavedra2013/n58.txt 678 90
+	     File w/ largest number of columns: ../data/Saavedra2013/n56.txt 110 207
