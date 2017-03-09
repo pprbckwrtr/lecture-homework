@@ -69,7 +69,7 @@ rownames(cats) <- NULL
 cats
 
 #Challenge 1
-df <- data.frame(first = c('Gayane), last = c('Hovsepyan'), lucky_number = c(13),stringsAsFactors = FALSE)
+df <- data.frame(first = c('Gayane'), last = c('Hovsepyan'), lucky_number = c(13),stringsAsFactors = FALSE)
 df <- rbind(df, list('Marie', 'Curie', 238) )
 df <- cbind(df, coffeetime = c(TRUE,TRUE))
 
