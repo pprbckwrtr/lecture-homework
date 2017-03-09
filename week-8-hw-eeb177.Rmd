@@ -1,0 +1,271 @@
+---
+title: "Week-8-HW-rmdportion"
+author: "Gayane Hovsepyan"
+date: "March 8, 2017"
+output: html_document
+---
+# Canids
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+setwd("/home/eeb177-student/Desktop/eeb-177/homework")
+
+canids <- read.csv("/home/eeb177-student/Desktop/eeb-177/class-assignments/canids/cleanedcanids.csv", header =F, as.is = T)
+
+names(canids) <- c("genus", "species", "minage", "maxage")
+head(canids)
+
+```
+```{r}
+canid_occ <- ggplot(canids, aes( species, ymin = maxage, ymax=minage, colour = genus))
+canid_occ <- canid_occ + geom_linerange()
+canid_occ <- canid_occ + theme(legend.position="none") 
+canid_occ <- canid_occ + coord_flip() 
+canid_occ <- canid_occ +  theme(axis.text.y = element_text(size=3))
+canid_occ <- canid_occ + theme(axis.ticks.y=element_blank())
+canid_occ <- canid_occ + scale_y_continuous(limits=c(0, 40), expand = c(0, 0), breaks=c(0, 10, 20, 30, 40))
+canid_occ <- canid_occ + labs(title = "Canid Fossil Occurrences", x = "Species", y = "Ma ago") + theme(plot.title = element_text(hjust = 0.5, size=22, face = "bold"), axis.title =element_text(size=20))
+canid_occ 
+ggsave(filename = "canid-occ.pdf", plot = canid_occ)
+```
+# Theropoda
+```{r}
+library(ggplot2)
+ther <- read.csv("/home/eeb177-student/Desktop/eeb-177/homework/pbdb_occs.csv", header = F, as.is = T)
+names(ther) <- c("genus", "species", "minage", "maxage")
+head(ther)
+ther_occ <- ggplot(ther, aes(species, ymin = maxage, ymax = minage, colour = genus)
+ther_occ <- ther_occ + geom_linerange()
+ther_occ <- ther_occ + theme(legend.position="none")
+ther_occ <- ther_occ + coord_flip()
+ther_occ <- ther_occ + theme(axis.text.y = element_text(size=3))
+ther_occ <- ther_occ + theme(axis.ticks.y = element_blank())
+ther_occ <- ther_occ + scale_y_continuous(limits=c(0, 40), expand = c(0, 0), breaks=c(0, 10, 20, 30, 40))
+ther_occ <- ther_occ + labs(title = "Theropoda Fossil Occurrences", x = "Species", y = "Ma ago") + theme(plot.title = element_text(hjust = 0.5, size=22, face = "bold"), axis.title =element_text(size=20))
+ther_occ
+ggsave(filename = "ther-occ.pdf", plot = ther_occ)
+```
+# Exploring Data Frames
+
+```{r}
+cats <- read.csv(file = "/home/eeb177-student/Desktop/eeb-177/class-assignments/feline-data.csv")
+age <- c(2,3,5,12)
+cats
+age <- c(4,5,8)
+cats <- cbind(cats, age)
+cats
+levels(cats$coat)
+levels(cats$coat) <- c(levels(cats$coat), 'tortoiseshell')
+cats <- rbind(cats, list("tortoiseshell", 3.3, TRUE, 9))
+str(cats)
+cats$coat <- as.character(cats$coat)
+str(cats)
+cats[-4,]
+na.omit(cats)
+cats <- na.omit(cats)
+cats <- rbind(cats, cats)
+cats
+rownames(cats) <- NULL
+cats
+
+#Challenge 1
+df <- data.frame(first = c('Madison'), last = c('Downing'), lucky_number = c(22),stringsAsFactors = FALSE)
+df <- rbind(df, list('Taylor', 'Swift', 13) )
+df <- cbind(df, coffeetime = c(TRUE,TRUE))
+
+gapminder <- read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv")
+str(gapminder)
+typeof(gapminder$year)
+typeof(gapminder$country)
+str(gapminder$country)
+length(gapminder)
+typeof(gapminder)
+nrow(gapminder)
+ncol(gapminder)
+dim(gapminder)
+colnames(gapminder)
+head(gapminder)
+
+# Challenge 2
+source(file = "load-gapminder.R")
+
+# Challenge 3
+#gapminder is a set of data with columns as factors and rows as data entries
+#country and continent are Factors
+#year is an integer
+#population, life expectancy, and gdp per capita are numbers
+```
+# Subsetting Data
+
+```{r}
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+x
+x[1]
+x[4]
+x[c(1, 3)]
+x[1:4]
+1:4
+c(1, 2, 3, 4)
+x[c(1,1,3)]
+x[6]
+x[0]
+x[-2]
+x[c(-1, -5)]
+x[-(1:3)]
+x <- x[-4]
+x
+
+# Challenge 1
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+x[c("b", "c", "d")]
+x[c(2,3,4)]
+x[2:4]
+
+x[c("a", "c")]
+x[-which(names(x) == "a")]
+names(x) == "a"
+which(names(x) == "a")
+x[-which(names(x) %in% c("a", "c"))]
+
+# Challenge 2 
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+# expect scenarios A and C
+
+x <- 1:3
+x
+names(x) <- c('a', 'a', 'a')
+x
+x['a']
+x[which(names(x) == 'a')]
+names(x) == c('a', 'c', 'e')
+x[c(TRUE, TRUE, FALSE, FALSE)]
+x[c(TRUE, FALSE)]
+x[x > 7]
+
+#Challenge 3
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+x_subset <- x[x<7 & x>4]
+print(x_subset)
+
+f <- factor(c("a", "a", "b", "c", "c", "d"))
+f[f == "a"]
+f[f %in% c("b", "c")]
+f[1:3]
+f[-3]
+set.seed(1)
+m <- matrix(rnorm(6*4), ncol=4, nrow=6)
+m[3:4, c(3,1)]
+m[, c(3,4)]
+m[3,]
+m[3, , drop=FALSE]
+m[5]
+matrix(1:6, nrow=2, ncol=3)
+matrix(1:6, nrow=2, ncol=3, byrow=TRUE)
+
+# Challenge 4 
+m <- matrix(1:18, nrow=3, ncol=6)
+print(m)
+#D
+
+xlist <- list(a = "Software Carpentry", b = 1:10, data = head(iris))
+xlist[1]
+xlist[1:2]
+xlist[[1]]
+xlist[["a"]]
+xlist$data
+
+# Challenge 5
+xlist <- list(a = "Software Carpentry", b = 1:10, data = head(iris))
+xlist[["b"]][2]
+
+# Challenge 6
+mod <- aov(pop ~ lifeExp, data=gapminder)
+attributes(mod)
+mod$df.residual
+
+head(gapminder[3])
+head(gapminder[["lifeExp"]])
+head(gapminder$year)
+gapminder[1:3,]
+gapminder[3,]
+
+# Challenge 7
+gapminder[gapminder$year == 1957,]
+gapminder[,-c(1:4)]
+gapminder[gapminder$lifeExp > 80,]
+gapminder[1, c(4, 5)]
+gapminder[gapminder$year == 2002 | gapminder$year == 2007,]
+gapminder[gapminder$year %in% c(2002, 2007),]
+
+# Challenge 8
+#gapminder needs to be given two dimensions since it is a data frame
+gapminder_small <- gapminder[c(1:9, 19:23),]
+```
+# Creating Publication Quality Graphics
+
+```{r}
+library("ggplot2")
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()
+
+# Challenge 1
+ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
+
+# Challenge 2 
+ggplot(data = gapminder, aes(x = year, y = lifeExp, color=continent)) + geom_point()
+
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) + geom_line()
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) + geom_line() + geom_point()
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) + geom_line(aes(color=continent)) + geom_point()
+
+# Challenge 3
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) + geom_point() + geom_line(aes(color=continent))
+# The lines are on top of the points
+
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color=continent)) + geom_point()
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point(alpha = 0.5) + scale_x_log10()
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point() + scale_x_log10() + geom_smooth(method="lm")
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point() + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+
+# Challenge 4a
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point(size=3, color="orange") + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+
+# Challenge 4b
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) + geom_point(size=3, pch=17) + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+
+starts.with <- substr(gapminder$country, start = 1, stop = 1)
+az.countries <- gapminder[starts.with %in% c("A", "Z"), ]
+ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) + geom_line() + facet_wrap( ~ country)
+ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) + geom_line() + facet_wrap( ~ country) + xlab("Year") + ylab("Life expectancy") + ggtitle("Figure 1") + scale_colour_discrete(name="Continent") + theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
+
+# Challenge 5
+ggplot(data = gapminder, aes(x = gdpPercap, fill=continent)) + geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
+```
+# 
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
