@@ -89,11 +89,11 @@ head(gapminder)
 # Challenge 2
 source(file = "load-gapminder.R")
 
-# Challenge 3
-#gapminder is a set of data with columns as factors and rows as data entries
-#country and continent are Factors
-#year is an integer
-#population, life expectancy, and gdp per capita are numbers
+'''Challenge 3
+gapminder is a set of data with columns as factors and rows as data entries
+- country and continent are Factors
+- year is an integer
+- population, life expectancy, and gdp per capita are numbers
 ```
 # Subsetting Data
 
