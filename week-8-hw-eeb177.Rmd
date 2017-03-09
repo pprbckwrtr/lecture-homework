@@ -69,8 +69,8 @@ rownames(cats) <- NULL
 cats
 
 #Challenge 1
-df <- data.frame(first = c('Madison'), last = c('Downing'), lucky_number = c(22),stringsAsFactors = FALSE)
-df <- rbind(df, list('Taylor', 'Swift', 13) )
+df <- data.frame(first = c('Gayane), last = c('Hovsepyan'), lucky_number = c(13),stringsAsFactors = FALSE)
+df <- rbind(df, list('Marie', 'Curie', 238) )
 df <- cbind(df, coffeetime = c(TRUE,TRUE))
 
 gapminder <- read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv")
